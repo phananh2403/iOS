@@ -36,14 +36,14 @@ extension VaccineView: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgArr.count
     }
-    
+    // cấu hình từng item trong collection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? DataCollectionViewCell
         cell?.img.image = UIImage(named: imgArr[indexPath.row])
         cell?.lbl.text = imgArr[indexPath.row]
         return cell!
     }
-    
+    // tạo action cho mỗi item,click vào mỗi item -> sang 1 UI chứa nội dung riêng của item đó
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController
         vc?.name = imgArr[indexPath.row]
