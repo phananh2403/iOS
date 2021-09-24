@@ -58,8 +58,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let textOfRow = todoListItemArr[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = textOfRow.name
-        //cell.textLabel?.text = String(describing: model.createAt)
+        //cell.textLabel?.text = textOfRow.name
+        cell.textLabel?.text = "\(String(describing: textOfRow.name)) at \(String(describing: textOfRow.createAt))"
         return cell
     }
     
